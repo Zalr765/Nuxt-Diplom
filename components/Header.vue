@@ -49,6 +49,7 @@
     display: flex;
     justify-content: space-between;
     padding-top: 30px;
+    margin-bottom: 70px;
     @include mq(0, $tablet){ align-items: center; }
 }
 
@@ -127,6 +128,7 @@
 {
     display: flex;
     gap: 15px;
+    height: 30px;
 }
 
 .header-menu__link
