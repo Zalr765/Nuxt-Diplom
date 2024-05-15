@@ -1,5 +1,7 @@
 <template>
-    
+    <mainSlider />
+    <doIt />
+    <newsSlider />
 </template>
 
 <script setup>
