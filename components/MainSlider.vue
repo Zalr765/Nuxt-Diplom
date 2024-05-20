@@ -50,7 +50,6 @@
 <script setup>
 import { Swiper, SwiperSlide } from 'swiper/vue';
 import { Navigation, Autoplay } from 'swiper/modules';
-import { onMounted } from 'vue';
 import 'swiper/css/navigation';
 import 'swiper/css';
 import { ref } from 'vue';
@@ -62,20 +61,20 @@ let slideLength = ref(0);
 const swiperInstance = ref(null);
 
 const prevSlide = () => {
-  if (swiperInstance.value) {
-    swiperInstance.value.slidePrev();
-  }
+	if (swiperInstance.value) {
+		swiperInstance.value.slidePrev();
+	}
 };
 
 const nextSlide = () => {
-  if (swiperInstance.value) {
-    swiperInstance.value.slideNext();
-  }
+	if (swiperInstance.value) {
+		swiperInstance.value.slideNext();
+	}
 };
 
 const onSwiper = (swiper) => {
-  swiperInstance.value = swiper;
-  slideLength.value = swiper.slides.length;
+	swiperInstance.value = swiper;
+	slideLength.value = swiper.slides.length;
 };
 
 
