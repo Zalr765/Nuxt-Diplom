@@ -1,5 +1,6 @@
 <template>
     <mainSlider />
+    <color />
     <doIt />
     <newsSlider />
 </template>
