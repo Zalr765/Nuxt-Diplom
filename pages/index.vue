@@ -1,5 +1,6 @@
 <template>
     <mainSlider />
+    <showcase title="Новое поступление" />
     <color />
     <doIt />
     <newsSlider />

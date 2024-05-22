@@ -88,6 +88,7 @@ const indexSlideTo = (index) =>{
     font-weight: 700;
     margin-bottom: 30px;
 	text-transform: uppercase;
+	@include mq(0, $desktop) { font-size: 24px }
 }
 
 .color-content
