@@ -115,7 +115,8 @@ const modules = [Navigation, Autoplay];
     color:#1E1E1E;
     font-size: 100px;
     font-weight: 900;
-    @include mq (0, $desktop) { font-size: 70px; }
+    @include mq ($tablet, $desktop) { font-size: 70px; }
+    @include mq (0, $tablet) { font-size: 60px; }
     span{ color: $grape }
 }
 
@@ -180,7 +181,7 @@ const modules = [Navigation, Autoplay];
         width: 100%;
         height: 100%;
         max-width: 500px;
-        max-height: 500px;
+        max-height: 450px;
     }
     h2
     {
