@@ -4,6 +4,7 @@
     <color />
     <doIt />
     <vue-best />
+    <vitrina />
     <newsSlider />
 </template>
 
