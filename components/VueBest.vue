@@ -41,7 +41,7 @@
 </script>
 
 <style lang='scss'>
-.best { margin-bottom: 200px }
+.best { margin-bottom: 100px }
 
 .best-title
 {
