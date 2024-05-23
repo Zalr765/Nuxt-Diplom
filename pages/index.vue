@@ -3,6 +3,7 @@
     <showcase title="Новое поступление" />
     <color />
     <doIt />
+    <vue-best />
     <newsSlider />
 </template>
 
