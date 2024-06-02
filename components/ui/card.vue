@@ -10,8 +10,6 @@
 </template>
 
 <script setup>
-//Imports
-import { defineProps } from 'vue';
 
 //Props
 const props = defineProps({
@@ -21,7 +19,7 @@ const props = defineProps({
     img: { type: String },
     isHover:
     {
-        type: String,
+        type: Boolean,
         default: false
     },
 });
