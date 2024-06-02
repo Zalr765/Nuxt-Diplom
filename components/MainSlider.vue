@@ -82,6 +82,7 @@ const onSlideChange = (slide) => {
     getSlide.value = slide.activeIndex + 1;
 };
 
+
 const modules = [Navigation, Autoplay];
 </script>
 

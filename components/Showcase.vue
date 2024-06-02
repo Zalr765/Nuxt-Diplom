@@ -35,8 +35,6 @@
 </template>
 
 <script setup>
-//Imports
-import { defineProps } from 'vue';
 
 //Props
 const props = defineProps({

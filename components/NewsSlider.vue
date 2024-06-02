@@ -51,7 +51,6 @@
 import { Swiper, SwiperSlide} from 'swiper/vue';
 import { Navigation } from 'swiper/modules'
 import { Autoplay } from 'swiper/modules'
-import 'swiper/css/navigation';
 import 'swiper/css';
 import { ref } from 'vue';
 const swiperInstance = ref(null);
@@ -80,6 +79,7 @@ const nextSlide = () => {
         swiperInstance.value.slideNext();
 };
 
+const modules = [Navigation, Autoplay];
 </script>
 
 <style lang='scss'>

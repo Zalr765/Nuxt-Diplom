@@ -1,97 +1,82 @@
 <template>
-    <div class="auth container">
-        <p class="auth-title">GRAPE<span>&</span>POIZON</p>
-        <form
-				class="auth-form"
-				@submit.prevent="submitForm"
-			>
-            <h3 class="auth-form__title">Вход</h3>
-            <div class="auth-form__inputs">
-                <ui-auth-input
-						v-model:value="form.username"
-                        :placeholder="'Логин'"
-						:required="true"
-						:error="v$.username.$dirty && v$.username.$invalid"
-                    />
-                <ui-auth-input
-                        :placeholder="'Пароль'"
-						v-model:value="form.password"
-                        :isPassword="true"
-						:required="true"
-						:error="v$.password.$dirty && v$.password.$invalid"
-                    />
-
-            </div>
-            <NuxtLink class="auth-form__link" to="">Регистрация</NuxtLink>
-            <button class="auth-form__btn">ОТПРАВИТЬ</button>
-
-        </form>
-    </div>
+	<div class="auth container">
+		<p class="auth-title">GRAPE<span>&</span>POIZON</p>
+		<form class="auth-form" @submit.prevent="submitForm">
+			<h3 class="auth-form__title">Вход</h3>
+			<div class="auth-form__inputs">
+				<ui-auth-input
+					v-model:value="form.username"
+					:placeholder="'Логин'"
+					:required="true"
+					:error="v$.username.$dirty && v$.username.$invalid"
+				/>
+				<ui-auth-input
+					v-model:value="form.password"
+					:placeholder="'Пароль'"
+					:isPassword="true"
+					:required="true"
+					:error="v$.password.$dirty && v$.password.$invalid"
+				/>
+			</div>
+            <div v-if="loginMessage" class="error-message">{{ loginMessage }}</div>
+			<NuxtLink class="auth-form__link" to="/register">Регистрация</NuxtLink>
+			<button class="auth-form__btn">ОТПРАВИТЬ</button>
+		</form>
+	</div>
 </template>
 
 <script setup>
-//Imports
-import { defineEmits, reactive }    from 'vue';
+// Imports
+import { reactive } from 'vue';
 import useVuelidate from '@vuelidate/core';
 import { required, minLength, maxLength } from '@vuelidate/validators';
 import axios from 'axios';
 
-//Variables
+// Variables
 const form = reactive({
     username: '',
     password: '',
 });
 
 const rules = {
-        username: {
-            required,
-            minLength: minLength(4),
-        },
-        password: {
-            required,
-            minLength: minLength(6),
-            maxLength: maxLength(16),
-        },
+    username: {
+        required,
+        minLength: minLength(4),
+    },
+    password: {
+        required,
+        minLength: minLength(6),
+        maxLength: maxLength(16),
+    },
 };
 
 const v$ = useVuelidate(rules, form);
 
-const emit = defineEmits(['submitForm']);
+const emit = defineEmits(['submitForm'])
 
-//Functions
+const loginMessage = ref('');
 
-
+// Functions
 const submitForm = async () => {
+    v$.value.$touch();
+    // Проверка валидности формы
+    if (!v$.value.$invalid) {
+        try {
+        const response = await axios.get(`https://c2ca606bd5038de3.mokky.dev/users?login=${form.username}&pass=${form.password}`);
+            if (response.data.length === 0){
+                loginMessage.value = 'Неверный логин или пароль'
+            }
+        } catch (error) {
+            console.error('Error fetching users:', error);
+        }
+    }
 
-	v$.value.$touch();
+    // Обновление состояния ошибок в input компонентах
+    v$.value.$touch();
 
-	if (!v$.value.$invalid)
-	{
-		try {
-			const response = await axios.post('https://c2ca606bd5038de3.mokky.dev/register', {
-			login: form.username,
-			pass: form.password
-			}, {
-			headers: {
-				Accept: 'application/json',
-				'Content-Type': 'application/json'
-			}
-			});
-
-			console.log('Response:', response.data);
-			// Здесь вы можете обрабатывать данные ответа, например, сохранять токен
-			// localStorage.setItem('token', response.data.token);
-		} catch (error) {
-			console.error('Error:', error);
-			// Обработка ошибок
-		}
-	}
-
-	emit('submitForm');
+    emit('submitForm');
 };
-
-
-definePageMeta({ layout: 'empty' });
+definePageMeta({ layout: false });
 </script>
 
 <style lang='scss'>
@@ -118,7 +103,6 @@ definePageMeta({ layout: 'empty' });
     height: 100%;
     width: 80%;
     padding: 20px 0;
-
     border-radius: 20px;
     display: flex;
     flex-direction: column;
@@ -144,10 +128,10 @@ definePageMeta({ layout: 'empty' });
     font-weight: 700;
     margin-top: 80px;
     transition: all .3s;
-	border: none;
+    border: none;
     cursor: pointer;
     &:hover
-    {
+	{
         background-color: $grape;
         color: black;
     }
@@ -155,21 +139,20 @@ definePageMeta({ layout: 'empty' });
 
 .auth-form__inputs
 {
-    margin-top: 40px;
-    display: flex;
-    flex-direction: column;
-    gap: 40px;
+	margin-top: 40px;
+	display: flex;
+	flex-direction: column;
+	gap: 40px;
 }
 
-.auth-form__link
-{
-    font-size: 14px;
+.auth-form__link {
+	font-size: 14px;
 	text-transform: uppercase;
 	font-weight: 600;
-    color: black;
-    margin-top: 10px;
-    margin-left: 340px;
-    transition: color .3s;
-    &:hover{ color: $grape }
+	color: black;
+	margin-top: 10px;
+	margin-left: 340px;
+	transition: color .3s;
+	&:hover { color: $grape }
 }
 </style>

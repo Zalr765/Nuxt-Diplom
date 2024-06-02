@@ -14,7 +14,7 @@
 </template>
 
 <script setup>
-import { defineProps, defineEmits, computed, ref, watch } from 'vue';
+import { computed, ref, watch } from 'vue';
 
 const props = defineProps({
     placeholder: { type: String },
@@ -70,8 +70,7 @@ watch(() => props.value, (newValue) => {
 </script>
 
 <style lang='scss' scoped>
-.auth-input
-{
+.auth-input {
     color: $grape;
     background-color: black;
     width: 480px;
@@ -79,13 +78,14 @@ watch(() => props.value, (newValue) => {
     padding: 0 20px;
     border-radius: 100px;
     border: 2px solid $grape;
-    &.error
-    {
+    &.error {
         animation: shake .4s ease-in-out;
     }
 }
 
-div { position: relative; }
+div {
+    position: relative;
+}
 
 span {
     color: $grape;
@@ -95,8 +95,7 @@ span {
     font-size: 18px;
     transition: all .3s;
     pointer-events: none;
-    &.error
-    {
+    &.error {
         color: red;
         animation: shake .4s ease-in-out;
     }
@@ -104,22 +103,21 @@ span {
 
 @keyframes shake {
     0% {
-        transform: translateX(-5px); /* Начальная позиция -5px */
+        transform: translateX(-5px);
     }
     25% {
-        transform: translateX(5px); /* Дергаем вправо */
+        transform: translateX(5px);
     }
     50% {
-        transform: translateX(-3px); /* Возвращаемся чуть влево */
+        transform: translateX(-3px);
     }
     75% {
-        transform: translateX(3px); /* Дергаем вправо снова */
+        transform: translateX(3px);
     }
     100% {
-        transform: translateX(0); /* Возвращаемся на исходную позицию */
+        transform: translateX(0);
     }
 }
-
 
 span.focused {
     font-size: 12px;
