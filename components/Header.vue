@@ -3,24 +3,19 @@
         <ui-burger />
         <NuxtLink class="header-logo" to="/"> <icons-logo /> </NuxtLink>
         <nav class="header-nav">
-            <div class="header-nav__link">
+            <div :class="{'active' : route.path == '/man'}" class="header-nav__link">
                 <icons-grape class="header-nav__link-icon" />
-                <NuxtLink to="">Мужчинам</NuxtLink>
+                <NuxtLink to="/man">Мужчинам</NuxtLink>
                 <icons-grape class="header-nav__link-icon" />
             </div>
-            <div class="header-nav__link">
+            <div :class="{'active' : route.path == '/woman'}" class="header-nav__link">
                 <icons-grape class="header-nav__link-icon" />
-                <NuxtLink to="">Девушкам</NuxtLink>
+                <NuxtLink to="/woman">Девушкам</NuxtLink>
                 <icons-grape class="header-nav__link-icon" />
             </div>
             <div class="header-nav__link">
                 <icons-grape class="header-nav__link-icon" />
                 <NuxtLink to="">Grape&Poizon</NuxtLink>
-                <icons-grape class="header-nav__link-icon" />
-            </div>
-            <div class="header-nav__link">
-                <icons-grape class="header-nav__link-icon" />
-                <NuxtLink to="">Оплата и доставка</NuxtLink>
                 <icons-grape class="header-nav__link-icon" />
             </div>
             <div class="header-nav__link">
@@ -42,6 +37,13 @@
         </div>
     </header>
 </template>
+
+<script setup>
+import { useRoute } from 'vue-router';
+
+const route = useRoute()
+
+</script>
 
 <style lang='scss'>
 .header
@@ -107,6 +109,15 @@
             scale: 1;
         }
         .header-nav__link-icon:last-child { left: 0; }
+    }
+    &.active
+    {
+        a { color: $grape; }
+        svg
+        {
+            opacity: 1;
+            position: unset;
+        }
     }
 }
 

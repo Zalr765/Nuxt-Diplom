@@ -1,12 +1,12 @@
 <template>
-    <div :class="{'hover': isHover }"  class="ui-card">
+    <NuxtLink :to="route" :class="{'hover': isHover }"  class="ui-card">
         <img :src="props.img" alt="" class="ui-card-pic">
         <div class="ui-card-text">
             <span class="ui-card-text__title">{{ props.title }}</span>
             <span class="ui-card-text__subtitle">{{ props.subtitle }}</span>
             <span class="ui-card-text__price">{{ props.price }}  RUB.</span>
         </div>
-    </div>
+    </NuxtLink>
 </template>
 
 <script setup>
@@ -21,6 +21,11 @@ const props = defineProps({
     {
         type: Boolean,
         default: false
+    },
+    route:
+    {
+        type: String,
+        default: '/'
     },
 });
 </script>
@@ -38,6 +43,7 @@ const props = defineProps({
     align-items: center;
     flex-direction: column;
     margin-left: 0;
+    &:hover{ color: $grape }
     @include mq($desktop, $widescreen)
     {
         height: 500px;
@@ -91,6 +97,7 @@ const props = defineProps({
 {
     display: flex;
     flex-direction: column;
+    text-align: center;
 }
 .ui-card-text__title
 {
@@ -98,6 +105,7 @@ const props = defineProps({
     font-size: 20px;
     font-weight: 600;
     line-height: 24.2px;
+    text-transform: uppercase;
 }
 .ui-card-text__subtitle,.ui-card-text__price
 {
