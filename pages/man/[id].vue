@@ -30,7 +30,7 @@
 			<h3>{{ item? item.title : '' }}</h3>
 			<div class="detail-content__info-price">
 				<span>{{ item? item.price : '' }} RUB.</span>
-				<p>{{ item? item.price - 2000 : '' }} RUB.</p>
+				<p>{{ item? item.price + 2000 : '' }} RUB.</p>
 			</div>
 			<div class="detail-content__info-text">{{ item? item.text : '"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.' }} </div>
 			<div @click="togglePopup" class="detail-content__info-table">Показать таблицу размеров</div>
