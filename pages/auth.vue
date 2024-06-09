@@ -27,12 +27,16 @@
 
 <script setup>
 // Imports
-import { reactive } from 'vue';
+import { reactive, ref } from 'vue';
 import useVuelidate from '@vuelidate/core';
 import { required, minLength, maxLength } from '@vuelidate/validators';
 import axios from 'axios';
+import { useRouter } from 'vue-router';
+
 
 // Variables
+const router = useRouter();
+
 const form = reactive({
     username: '',
     password: '',
@@ -65,6 +69,11 @@ const submitForm = async () => {
         const response = await axios.get(`https://c2ca606bd5038de3.mokky.dev/users?login=${form.username}&pass=${form.password}`);
             if (response.data.length === 0){
                 loginMessage.value = 'Неверный логин или пароль'
+            }
+			else
+            {
+                localStorage.setItem('user', response.data[0].id)
+				router.push('/cart');
             }
         } catch (error) {
             console.error('Error fetching users:', error);
