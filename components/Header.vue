@@ -31,7 +31,7 @@
             <NuxtLink class="header-menu__link" to="">
                 <icons-like class="header-menu__link-icon" />
             </NuxtLink>
-            <NuxtLink class="header-menu__link" to="">
+            <NuxtLink class="header-menu__link" to="/cart">
                 <icons-cart class="header-menu__link-icon" />
             </NuxtLink>
         </div>

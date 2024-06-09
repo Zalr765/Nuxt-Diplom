@@ -181,8 +181,8 @@ const modules = [Navigation, Autoplay];
     {
         width: 100%;
         height: 100%;
-        max-width: 500px;
-        max-height: 450px;
+        max-width: 400px;
+        max-height: 400px;
     }
     h2
     {

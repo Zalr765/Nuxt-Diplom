@@ -1,4 +1,3 @@
-Копировать код
 <template>
     <div class="man">
         <div class="man-top container">
@@ -95,7 +94,7 @@ watch([selectedCategory, selectedBrand, selectedPrice], ([newCategory, newBrand,
 }, { immediate: true }); // immediate: true вызовет наблюдатель сразу после его определения
 </script>
 
-<style lang='scss'>
+<style lang='scss' scoped>
 .man-top__title
 {
     font-family: $inter;
@@ -116,6 +115,7 @@ watch([selectedCategory, selectedBrand, selectedPrice], ([newCategory, newBrand,
 {
     display: flex;
     flex-wrap: wrap;
+    overflow: hidden;
     div
     {
         color: rgb(158, 158, 158);

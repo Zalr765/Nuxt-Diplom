@@ -1,34 +1,47 @@
 <template>
-    <NuxtLink :to="route" :class="{'hover': isHover }"  class="ui-card">
-        <img :src="props.img" alt="" class="ui-card-pic">
+    <div :class="{'hover': isHover }" class="ui-card">
+        <NuxtLink :to="route">
+            <img :src="props.img" alt="" class="ui-card-pic">
+        </NuxtLink>
         <div class="ui-card-text">
             <span class="ui-card-text__title">{{ props.title }}</span>
             <span class="ui-card-text__subtitle">{{ props.subtitle }}</span>
             <span class="ui-card-text__price">{{ props.price }}  RUB.</span>
+            <div v-if="props.delete" class="ui-card-text__count">
+                <button  @click="updateCount(-1)">-</button>
+                <span>{{ props.count }}</span>
+                <button @click="updateCount(1)">+</button>
+            </div>
         </div>
-    </NuxtLink>
+    </div>
 </template>
 
 <script setup>
 
-//Props
 const props = defineProps({
-    title: { type: String },
-    subtitle: { type: String },
-    price: { type: Number },
-    img: { type: String },
-    isHover:
-    {
-        type: Boolean,
-        default: false
-    },
-    route:
-    {
-        type: String,
-        default: '/'
-    },
+    title: { type: String, required: true },
+    subtitle: { type: String, required: true },
+    price: { type: Number, required: true },
+    img: { type: String, required: true },
+    isHover: { type: Boolean, default: false },
+    route: { type: String, default: '/' },
+    delete: { type: Boolean, default: false },
+    count: { type: Number},
+    updateItemCount: { type: Function},
+    id: { type: Number }
 });
+
+const emit = defineEmits(['update-item-count']);
+
+const updateCount = (delta) => {
+    emit('update-item-count', props.id, props.count + delta);
+};
+
+const removeItem = () => {
+    emit('update-item-count', props.id, 0);
+};
 </script>
+
 
 <style lang='scss'>
 .ui-card
@@ -42,6 +55,7 @@ const props = defineProps({
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    position: relative;
     margin-left: 0;
     &:hover{ color: $grape }
     @include mq($desktop, $widescreen)
@@ -81,6 +95,16 @@ const props = defineProps({
         }
     }
 }
+
+.ui-card-delete
+{
+    position: absolute;
+    right: 15px;
+    top: 15px;
+    z-index: 9999999;
+    cursor: pointer;
+}
+
 .ui-card-pic
 {
     width: 100%;
@@ -107,6 +131,7 @@ const props = defineProps({
     line-height: 24.2px;
     text-transform: uppercase;
 }
+
 .ui-card-text__subtitle,.ui-card-text__price
 {
     font-family: $inter;
@@ -114,5 +139,27 @@ const props = defineProps({
     font-weight: 400;
     line-height: 24.2px;
 }
+
+.ui-card-text__count
+{
+    margin-top: 5px;
+    font-size: 16px;
+
+}
+
 .ui-card-text__price { margin-top: 20px; }
+
+.ui-card-text__count
+{
+    display: flex;
+    justify-content: space-between;
+    button
+    {
+        border: none;
+        width: 30px;
+        height: 30px;
+        background-color: $grape;
+        color: white;
+    }
+}
 </style>
