@@ -94,7 +94,7 @@ watch([selectedCategory, selectedBrand, selectedPrice], ([newCategory, newBrand,
 }, { immediate: true }); // immediate: true вызовет наблюдатель сразу после его определения
 </script>
 
-<style lang='scss' scoped>
+<style lang='scss'>
 .man-top__title
 {
     font-family: $inter;
@@ -121,7 +121,6 @@ watch([selectedCategory, selectedBrand, selectedPrice], ([newCategory, newBrand,
         color: rgb(158, 158, 158);
         font-size: 38px;
         text-align: center;
-        margin: 0 auto;
         span { color: $grape }
     }
 }
