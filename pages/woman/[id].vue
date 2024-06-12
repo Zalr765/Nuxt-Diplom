@@ -1,7 +1,7 @@
 <template>
 <Preloader v-if="isLoading" />
 <div v-else class="detail">
-	<div class="detail-title container"><NuxtLink to="/">Главная</NuxtLink> / <NuxtLink to="/man">Мужчинам</NuxtLink> /  {{ item? item.title : '' }}</div>
+	<div class="detail-title container"><NuxtLink to="/">Главная</NuxtLink> / <NuxtLink to="/woman">Женщинам</NuxtLink> /  {{ item? item.title : '' }}</div>
 	<div class="detail-content container">
 		<swiper
 				class="detail-content__swiper"
@@ -71,7 +71,7 @@ const isCart = ref(false);
 const user = ref();
 const cart = ref();
 const cartItem = ref()
-const isLoading = ref(true)
+const isLoading = ref(true);
 
 //Funct
 
@@ -107,10 +107,9 @@ const fetchItem = async (id) => {
         }
     } catch (error) {
         router.push('/404');
+    } finally {
+        isLoading.value = false;
     }
-	finally{
-		isLoading.value = false
-	}
 };
 
 
