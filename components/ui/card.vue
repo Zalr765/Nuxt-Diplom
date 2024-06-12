@@ -117,6 +117,18 @@ const removeItem = () => {
         max-height: 250px;
     }
 }
+
+.ui-card-text__count button {
+    border: none;
+    width: 30px;
+    height: 30px;
+    background-color: #A552E7;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 .ui-card-text
 {
     display: flex;
