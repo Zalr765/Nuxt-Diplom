@@ -1,6 +1,12 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   devtools: { enabled: true },
+  head: {
+    title: 'GrapePoizon',
+    link: [
+      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
+    ]
+  },
   plugins: ['~/plugins/pinia.js'],
   router: {
     middleware: ['auth']
