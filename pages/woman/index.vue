@@ -2,7 +2,7 @@
     <Preloader v-if="isLoading" />
     <div v-else class="man">
         <div class="man-top container">
-            <div class="man-top__title"><NuxtLink to="/">Главная</NuxtLink> / Мужчинам</div>
+            <div class="man-top__title"><NuxtLink to="/">Главная</NuxtLink> / Женщинам</div>
             <div class="man-top__filter">
                 <ui-dropdown
                     title="Категория"
@@ -30,7 +30,7 @@
                     :title="item.title"
                     :subtitle="item.subtitle"
                     :price="item.price"
-                    :route="'/man/' + item.id"
+                    :route="'/woman/' + item.id"
             />
         </div>
     </div>
@@ -50,7 +50,8 @@ const categoryOptions = ref([
 ]);
 
 const items = ref([]);
-const isLoading = ref(true);
+
+const isLoading = ref(true)
 
 const brandOptions = ref([
     { value: 'nike', label: 'Nike' },
@@ -77,7 +78,7 @@ const request = async (params) => {
         const response = await axios.get('https://c2ca606bd5038de3.mokky.dev/items', {
             params: {
                 ...params,
-                sex: ['male', 'unisex'],
+                sex: ['female', 'unisex'],
             }
         });
         items.value = response.data;
