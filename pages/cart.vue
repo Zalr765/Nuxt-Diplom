@@ -15,7 +15,7 @@
                 <p>К оплате: <span>{{ totalPrice }}</span></p>
                 <button @click="togglePopup">Заказать</button>
             </div>
-            <div class="man-top__title"><NuxtLink to="/">Главная</NuxtLink> / Мужчинам</div>
+            <div class="man-top__title">Корзина</div>
             <div class="man-top__filter">
                 <ui-dropdown
                     title="Категория"
@@ -278,6 +278,7 @@ watch([selectedCategory, selectedBrand, selectedPrice], async ([newCategory, new
         background-color: $grape;
         padding: 15px 40px;
         color: white;
+        
     }
 }
 </style>
