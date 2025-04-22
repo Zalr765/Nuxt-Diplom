@@ -2,6 +2,8 @@
 
 Make sure to install the dependencies:
 
+reqwuired node - 18
+
 ```bash
 # npm
 npm install
