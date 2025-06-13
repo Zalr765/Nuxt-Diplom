@@ -1,7 +1,7 @@
 <template>
 	<div
 			class="img-card"
-			:style="{ backgroundImage: 'url(' + props.img + ')' }"
+			:style="{ backgroundImage: 'url(' + props.img + ')', backgroundSize: 'contain' }"
 		>
 		<div class="img-card-info">
 			<span class="img-card-info__title">{{ props.title }}</span>

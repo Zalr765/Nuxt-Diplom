@@ -3,32 +3,32 @@
         <h3 class="show-case-title">{{ props.title }}</h3>
         <div class="show-case-content">
             <ui-card
-                    :img="'/img/item.png'"
-                    :title="'AIR JORDAN 12'"
-                    :subtitle="'RETRO “ROYALTY”'"
-                    :price="4999"
-                    :is-hover="true"
+                :img="'/img/new1.png'"
+                :title="'Rick Owens Distressed'"
+                :subtitle="'Panelled High-top Sneakers in Brown '"
+                :price="80000"
+                :is-hover="true"
             />
             <ui-card
-                    :img="'/img/item.png'"
-                    :title="'AIR JORDAN 12'"
-                    :subtitle="'RETRO “ROYALTY”'"
-                    :price="4999"
-                    :is-hover="true"
+                :img="'/img/new2.png'"
+                :title="'maison margiela replica'"
+                :subtitle="'japan flag'"
+                :price="50000"
+                :is-hover="true"
             />
             <ui-card
-                    :img="'/img/item.png'"
-                    :title="'AIR JORDAN 12'"
-                    :subtitle="'RETRO “ROYALTY”'"
-                    :price="4999"
-                    :is-hover="true"
+                :img="'/img/new3.png'"
+                :title="'YOHJI YAMAMOTO'"
+                :subtitle="'HAIGH TOP'"
+                :price="70000"
+                :is-hover="true"
             />
             <ui-card
-                    :img="'/img/item.png'"
-                    :title="'AIR JORDAN 12'"
-                    :subtitle="'RETRO “ROYALTY”'"
-                    :price="4999"
-                    :is-hover="true"
+                :img="'/img/new4.png'"
+                :title="'MASTERMIND JAPAN x ROAR x MIHARA YASUHIRO'"
+                :subtitle="'PETERSON HIGH TOP'"
+                :price="20000"
+                :is-hover="true"
             />
         </div>
     </div>

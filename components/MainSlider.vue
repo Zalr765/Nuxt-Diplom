@@ -18,14 +18,14 @@
                 }"
             >
                 <swiper-slide
-                    v-for="i in 4"
+                    v-for="i in swiperData"
                     :key="i"
                     class="main-slider-сontent__swiper-slide"
                 >
-                    <img src="/img/item.png" alt="" srcset="">
-                    <h2>Louis vuitton</h2>
-                    <span>trainer</span>
-                    <span>4999 rub.</span>
+                    <img :src="i.img" alt="" srcset="">
+                    <h2>{{ i.title }}</h2>
+                    <span>{{ i.subtitle }}</span>
+                    <span>{{ i.price }} rub.</span>
                 </swiper-slide>
             </Swiper>
             <div class="main-slider-content__navigation">
@@ -59,6 +59,33 @@ const next = ref();
 let getSlide = ref(1);
 let slideLength = ref(0);
 const swiperInstance = ref(null);
+
+const swiperData = [
+    {
+        title: 'YOHJI YAMAMOTO',
+        subtitle: 'HAIGH TOP',
+        price: '70000',
+        img: '/img/new3.png',
+    },
+    {
+        title: 'Louis vuitton',
+        subtitle: 'trainer',
+        price: '4999',
+        img: '/img/item.png',
+    },
+    {
+        title: 'maison margiela replica',
+        subtitle: 'japan flag',
+        price: '500000',
+        img: '/img/new2.png',
+    },
+    {
+        title: 'ADIDAS YEEZY BOOST',
+        subtitle: '350',
+        price: '1500000',
+        img: '/img/SLIDER.png',
+    },
+]
 
 const prevSlide = () => {
 	if (swiperInstance.value) {

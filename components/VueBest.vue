@@ -3,34 +3,34 @@
 		<h2 class="best-title">Лучшее предложение</h2>
 		<div class="best-content">
 			<ui-imgCard
-				:img="'/img/item.png'"
+				:img="'/img/best1.png'"
 				:title="'AIR FORCE 1'"
 				:subtitle="'LOW FONTANKA “university blue”'"
 				:price="4999"
 			/>
 			<ui-imgCard
-				:img="'/img/item.png'"
-				:title="'AIR FORCE 1'"
-				:subtitle="'LOW FONTANKA “university blue”'"
-				:price="4999"
+				:img="'/img/best2.png'"
+				:title="'MAISON MARGIELA TABI'"
+				:subtitle="'HIGH TOP'"
+				:price="16000"
 			/>
 			<ui-imgCard
-				:img="'/img/item.png'"
-				:title="'AIR FORCE 1'"
-				:subtitle="'LOW FONTANKA “university blue”'"
-				:price="4999"
+				:img="'/img/best3.png'"
+				:title="'Adidas x Gucci'"
+				:subtitle="' Gazelle ”Green Suede”'"
+				:price="20000"
 			/>
 			<ui-imgCard
-				:img="'/img/item.png'"
-				:title="'AIR FORCE 1'"
-				:subtitle="'LOW FONTANKA “university blue”'"
-				:price="4999"
+				:img="'/img/best4.png'"
+				:title="'Adidas by Raf Simons'"
+				:subtitle="'Ozweego ”Royal white”'"
+				:price="90000"
 			/>
 			<ui-imgCard
-				:img="'/img/item.png'"
-				:title="'AIR FORCE 1'"
-				:subtitle="'LOW FONTANKA “university blue”'"
-				:price="4999"
+				:img="'/img/best5.png'"
+				:title="'MAISON MARGIELA evolution'"
+				:subtitle="'LOW BLACK'"
+				:price="40999"
 			/>
 		</div>
 	</div>
